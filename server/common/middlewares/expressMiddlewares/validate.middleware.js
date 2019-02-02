@@ -16,7 +16,8 @@ module.exports = {
     // Then validate request body agains schema
     // Btw. There are callback-based and promised based versions. I prefer promises.
     schema
-      .validate(req.body, { abortEarly: false }) // abortEarly - collect all errors not just the first one
+      // abortEarly - collect all errors not just the first one
+      .validate(req.body, { abortEarly: false })
       .then(validatedUser => {
         req.validated = Object.assign({}, validatedUser);
         next();
