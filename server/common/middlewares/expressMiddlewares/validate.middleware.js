@@ -7,6 +7,7 @@ const schema = Joi.object().keys({
     .required(),
   password: Joi.string()
     .regex(/^(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[\d])(?=.*?[\W])/)
+    .min(6)
     .max(10)
     .required(),
 });
