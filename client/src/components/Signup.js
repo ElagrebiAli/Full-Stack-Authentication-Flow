@@ -22,7 +22,7 @@ class Signup extends Component{
 }
 function mapStateToProps(state){
   return {
-      errorMessage:state.auth.errorMessage
+      errorMessage:state.auth.errorMessageSignUp
   }
 }
 export default connect(mapStateToProps,actions)(Signup)
