@@ -4,7 +4,7 @@
 // reduxThunk middleware knows how to turn thunk async actions into actions.
 import axios from 'axios'
 
-import { AUTH_SIGN, AUTH_ERROR ,AUTH_SIGN_OUT ,DASHBOARD_GET_DATA } from '../types'
+import { AUTH_SIGN,AUTH_SIGN_OUT ,DASHBOARD_GET_DATA, AUTH_ERROR_IN, AUTH_ERROR_UP } from '../types'
 import { signPayload ,signError ,signOutAction ,secretDataPayload} from './normalAction'
 
 //auth reducer async action 
@@ -29,7 +29,7 @@ export const signIn=data=>{
             localStorage.setItem('JWT_TOKEN',token)
             axios.defaults.headers.common['Authorization'] = token
         }catch(err){
-            dispatch(signError(AUTH_ERROR,"Email and password combination isn't valid"))
+            dispatch(signError(AUTH_ERROR_IN,"Email and password combination isn't valid"))
         }
         
         
@@ -45,7 +45,7 @@ export const signUp=data=>{
           axios.defaults.headers.common['Authorization'] = token
           
         }catch(err){
-          dispatch(signError(AUTH_ERROR,'Email is already in use'))
+          dispatch(signError(AUTH_ERROR_UP,'Email is already in use'))
         }
     }
 }
